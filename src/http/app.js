@@ -11,7 +11,7 @@ exports.requires = [
 	'@cors',
 	'@helmet',
 	'middlewares.auth0',
-	'middlewares.unauthorized-error',
+	'middlewares.errors-handle',
 	'routes.index',
 	'routes.api'
 ];
@@ -25,7 +25,7 @@ exports.factory = function (
 	cors,
 	helmet,
 	midAuth0,
-	midUnauthorizedError,
+	midErrorsHandle,
 	indexRouter,
 	apiRouter) {
 
@@ -50,7 +50,7 @@ exports.factory = function (
 	app.use(midAuth0);
 
 	// Handle errors "UnauthorizedError"
-	app.use(midUnauthorizedError);
+	app.use(midErrorsHandle);
 
 	// Register routers.
 	app.use('/', indexRouter);

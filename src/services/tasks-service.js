@@ -10,7 +10,7 @@ exports.requires = [
 exports.factory = function (cli, db) {
     class Service {
         getAll() {
-            return db().ref('/').once('value');
+            return db().ref('/').once('value');            
         }
     }
 

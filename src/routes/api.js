@@ -16,7 +16,7 @@ exports.factory = function (express, cli, promise, amqp, service) {
     router.get('/v1/tasks/', function (req, res, next) {
         service.getAll()
             .then(snapshot => {
-                res.json({ msg: 'get all tasks', data: snapshot.val() })
+                res.json(snapshot.val())
             })
             .catch((err) => next(err));
     });
